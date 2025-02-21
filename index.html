@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="API GHICHU" />
+  <meta property="og:description" content="API GHICHU" />
+  <meta property="og:image" content="https://i.imgur.com/LgH7rtS.png" />
+  <meta property="og:url" content="https://ghichu.phungtuanhai.site" />
+  <meta property="og:site_name" content="HARIN" />
+  <meta property="og:type" content="website" />
+  <link href="https://i.imgur.com/LgH7rtS.png" rel="icon" type="image/x-icon" />
+  <title>API GHICHU</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #ADD8E6;
+    }
+
+    .container {
+      text-align: center;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 20px;
+      color: #00FFCC;
+      font-weight: normal;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    a {
+      text-decoration: none;
+      color: #007BFF;
+      font-size: 18px;
+      transition: color 0.3s;
+      margin-right: 10px;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: #0056b3;
+    }
+
+    .logo {
+      width: 100px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      background-color: #ADD8E6;
+      color: #007BFF;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 14px;
+      border-radius: 20px;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #87CEEB;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <img src="https://i.imgur.com/LgH7rtS.png" alt="Logo" class="logo">
+    <h1>Welcome to API NOTE</h1>
+    <ul>
+      <li>
+        <a href="/note/:UUID">/note/:UUID</a>
+        <button class="btn" onclick="location.href='/note/:UUID'">GET</button>
+      </li>
+    </ul>
+  </div>
+</body>
+
+</html>
