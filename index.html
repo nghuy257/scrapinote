@@ -1,104 +1,366 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
+
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <meta property="og:title" content="API GHICHU" />
-  <meta property="og:description" content="API GHICHU" />
+
+  <meta property="og:description" content="API GHI CHÚ" />
+
   <meta property="og:image" content="https://i.imgur.com/LgH7rtS.png" />
+
   <meta property="og:url" content="https://ghichu.phungtuanhai.site" />
+
   <meta property="og:site_name" content="HARIN" />
+
   <meta property="og:type" content="website" />
+
   <link href="https://i.imgur.com/LgH7rtS.png" rel="icon" type="image/x-icon" />
+
   <title>API GHICHU</title>
+
   <style>
+
     body {
+
       font-family: Arial, sans-serif;
+
       margin: 0;
+
       padding: 0;
+
       display: flex;
+
       justify-content: center;
+
       align-items: center;
+
       height: 100vh;
-      background-color: #ADD8E6;
+
+      background: linear-gradient(135deg, #6dd5ed, #2193b0);
+
+      overflow: hidden;
+
+      position: relative;
+
+    }
+
+    .snowfall {
+
+      position: fixed;
+
+      top: 0;
+
+      left: 0;
+
+      width: 100%;
+
+      height: 100%;
+
+      pointer-events: none;
+
+      z-index: 0;
+
+      overflow: hidden;
+
+    }
+
+    .snow {
+
+      position: absolute;
+
+      width: 10px;
+
+      height: 10px;
+
+      background: white;
+
+      border-radius: 50%;
+
+      opacity: 0.8;
+
+      animation: snowfall linear infinite;
+
+    }
+
+    @keyframes snowfall {
+
+      from {
+
+        transform: translateY(-100px);
+
+      }
+
+      to {
+
+        transform: translateY(110vh);
+
+      }
+
     }
 
     .container {
+
       text-align: center;
-      background-color: #fff;
+
+      background: rgba(255, 255, 255, 0.9);
+
       padding: 20px;
+
       border-radius: 10px;
+
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+      position: relative;
+
+      z-index: 1;
+
     }
 
     h1 {
+
       margin-bottom: 20px;
-      font-size: 20px;
-      color: #00FFCC;
+
+      font-size: 24px;
+
       font-weight: normal;
+
+      color: #333;
+
+      animation: colorChange 3s infinite;
+
+    }
+
+    .gif-wrapper img {
+
+      width: 40px;
+
+      height: 40px;
+
+      margin: 0 5px;
+
     }
 
     ul {
+
       list-style-type: none;
+
       padding: 0;
+
       margin: 0;
+
     }
 
     li {
+
       margin: 10px 0;
+
       display: flex;
+
       align-items: center;
+
       justify-content: center;
+
     }
 
     a {
+
       text-decoration: none;
+
       color: #007BFF;
+
       font-size: 18px;
-      transition: color 0.3s;
+
+      transition: color 0.3s ease, transform 0.3s ease;
+
       margin-right: 10px;
+
+      animation: colorChange 3s infinite;
+
     }
 
     a:hover {
-      text-decoration: underline;
-      color: #0056b3;
-    }
 
-    .logo {
-      width: 100px;
-      margin-bottom: 20px;
+      text-decoration: underline;
+
+      transform: scale(1.1);
+
     }
 
     .btn {
-      background-color: #ADD8E6;
-      color: #007BFF;
+
+      background-color: #007BFF;
+
+      color: white;
+
       border: none;
-      padding: 5px 10px;
+
+      padding: 10px 15px;
+
       cursor: pointer;
+
       font-size: 14px;
+
       border-radius: 20px;
-      transition: background-color 0.3s;
+
+      transition: background-color 0.3s ease, transform 0.3s ease;
+
     }
 
     .btn:hover {
-      background-color: #87CEEB;
+
+      background-color: #0056b3;
+
+      transform: translateY(-2px);
+
     }
+
+    .btn-music {
+
+      margin-top: 10px;
+
+    }
+
+    @keyframes colorChange {
+
+      0% { color: #FF0000; }
+
+      25% { color: #FFA500; }
+
+      50% { color: #FFFF00; }
+
+      75% { color: #00FF00; }
+
+      100% { color: #0000FF; }
+
+    }
+
   </style>
+
 </head>
 
 <body>
+
+  <div class="snowfall"></div>
+
   <div class="container">
+
     <img src="https://i.imgur.com/LgH7rtS.png" alt="Logo" class="logo">
-    <h1>Welcome to API NOTE</h1>
+
+    <h1>
+
+      <span class="gif-wrapper">
+
+        <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="Bear GIF">
+
+        Welcome to API GHICHU
+
+        <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="Bear GIF">
+
+      </span>
+
+    </h1>
+
     <ul>
+
       <li>
+
         <a href="/note/:UUID">/note/:UUID</a>
+
         <button class="btn" onclick="location.href='/note/:UUID'">GET</button>
+
       </li>
+
     </ul>
+
+    <button class="btn btn-music" id="btnToggleMusic">🔊 Bật Nhạc</button>
+
+    <audio id="myMusic"></audio>
+
   </div>
+
+  <script>
+
+    // Danh sách nhạc
+
+    const musicLinks = [
+
+
+   "https://files.catbox.moe/js9w0n.mpeg"
+
+    ];
+
+    // Chọn bài nhạc ngẫu nhiên
+
+    function selectRandomMusic() {
+
+      const index = Math.floor(Math.random() * musicLinks.length);
+
+      return musicLinks[index];
+
+    }
+
+    // Lấy các phần tử DOM
+
+    const btnToggleMusic = document.getElementById('btnToggleMusic');
+
+    const myMusic = document.getElementById('myMusic');
+
+    // Sự kiện nhấn nút bật/tắt nhạc
+
+    btnToggleMusic.addEventListener('click', function () {
+
+      if (myMusic.paused) {
+
+        myMusic.src = selectRandomMusic();  // Chọn bài nhạc mới
+
+        myMusic.play();
+
+        btnToggleMusic.textContent = '🔈 Tắt Nhạc';
+
+      } else {
+
+        myMusic.pause();
+
+        btnToggleMusic.textContent = '🔊 Bật Nhạc';
+
+      }
+
+    });
+
+    // Hiệu ứng tuyết rơi
+
+    function createSnowflakes() {
+
+      const snowfall = document.querySelector('.snowfall');
+
+      for (let i = 0; i < 50; i++) {
+
+        const snow = document.createElement('div');
+
+        snow.classList.add('snow');
+
+        snow.style.left = Math.random() * 100 + 'vw';
+
+        snow.style.animationDuration = (Math.random() * 3 + 2) + 's';
+
+        snowfall.appendChild(snow);
+
+      }
+
+    }
+
+    createSnowflakes();
+
+  </script>
+
 </body>
 
 </html>
